@@ -5,17 +5,16 @@ import { Environment, useGLTF, ContactShadows, OrbitControls, Text} from '@react
 import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CanvasLoader } from '../CustomLoaders/CustomLoaders';
-// import Typewriter from 'typewriter-effect';
-// import { useSpring, animated, config } from '@react-spring/three';
+import Fonts from "/fonts/Poppins-Regular.ttf";
 import { useScroll } from '../../custom-hooks/hooks';
 
 
-export const CanvasComponent = () => { 
-    const {isScrolling} = useScroll()
+export const CanvasComponent = () => {
+    const { isScrolling } = useScroll(); 
 
    
     return(
-        <div className="canvas" style={{ height: "100dvh", width: "100%", position: "fixed", zIndex: isScrolling ? "0" : "3", pointerEvents:"auto"}}>
+        <div className="canvas" style={{ height: "100dvh", width: "100%", position: "fixed", zIndex: isScrolling ? "1" : "3", pointerEvents:"auto"}}>
             <Canvas 
                 dpr={[1, 2]}
                 camera={{ position: [0, 2, 5], fov: 35 }}
@@ -115,21 +114,11 @@ const TextComponent = () => {
         setTextThree(t('profile.text2'));
     },[t]);
 
-    // const TypeWriterFunction = () => {
-    //     return <Typewriter
-    //             options={{
-    //             strings: [`${textTwo}`, `${textThree}`],
-    //             autoStart: true,
-    //             loop: true,
-    //             pauseFor: 2500,
-    //             cursorClassName: 'Typewriter__cursor',
-    //         }}
-    //     />
-    // };
 
     return (
         <group scale={[-1, 1, 2]}>
             <Text
+                font={Fonts}
                 fontSize={0.25}
                 // fontSize={fonrSizeOne}
                 fontWeight={700}
@@ -145,6 +134,7 @@ const TextComponent = () => {
                 {textOne}
             </Text>
             <FadingText
+                font={Fonts}
                 texts={[textTwo, textThree]}
                 positions={[
                     [1.25, 0.35, 0.59],
@@ -159,58 +149,59 @@ const TextComponent = () => {
 };
 
 
-const FadingText = ({ texts, positions, fontSizes, lineHeight, fontWeight }) => {
-  const [index, setIndex] = useState(0);
-  const [opacity, setOpacity] = useState(1);
-  const [phase, setPhase] = useState('waiting');
-  const timerRef = useRef(0);
+const FadingText = ({ texts, positions, fontSizes, lineHeight, fontWeight, font }) => {
+    const [index, setIndex] = useState(0);
+    const [opacity, setOpacity] = useState(1);
+    const [phase, setPhase] = useState('waiting');
+    const timerRef = useRef(0);
 
-  const fadeSpeed = 1.5;
-  const pauseDuration = 2.5;
+    const fadeSpeed = 1.5;
+    const pauseDuration = 2.5;
 
-  useFrame((_, delta) => {
-    timerRef.current += delta;
+    useFrame((_, delta) => {
+        timerRef.current += delta;
 
-    if (phase === 'waiting' && timerRef.current >= pauseDuration) {
-      setPhase('fadeOut');
-      timerRef.current = 0;
-    }
+        if (phase === 'waiting' && timerRef.current >= pauseDuration) {
+            setPhase('fadeOut');
+            timerRef.current = 0;
+        }
 
-    if (phase === 'fadeOut') {
-      const newOpacity = Math.max(0, opacity - delta * fadeSpeed);
-      setOpacity(newOpacity);
+        if (phase === 'fadeOut') {
+            const newOpacity = Math.max(0, opacity - delta * fadeSpeed);
+            setOpacity(newOpacity);
 
-      if (newOpacity <= 0) {
-        setIndex((prev) => (prev + 1) % texts.length);
-        setPhase('fadeIn');
-      }
-    }
+            if (newOpacity <= 0) {
+                setIndex((prev) => (prev + 1) % texts.length);
+                setPhase('fadeIn');
+            }
+        }
 
-    if (phase === 'fadeIn') {
-      const newOpacity = Math.min(1, opacity + delta * fadeSpeed);
-      setOpacity(newOpacity);
+        if (phase === 'fadeIn') {
+            const newOpacity = Math.min(1, opacity + delta * fadeSpeed);
+            setOpacity(newOpacity);
 
-      if (newOpacity >= 1) {
-        setPhase('waiting');
-        timerRef.current = 0;
-      }
-    }
-  });
+            if (newOpacity >= 1) {
+                setPhase('waiting');
+                timerRef.current = 0;
+            }
+        }
+    });
 
-  return (
-    <Text
-        fontSize={fontSizes[index]}
-        anchorY="bottom"
-        anchorX="right"
-        position={positions[index]}
-        material-toneMapped={false}
-        color="white"
-        transparent
-        opacity={opacity}
-        lineHeight={lineHeight}
-        fontWeight={fontWeight}
-    >
-      {texts[index]}
-    </Text>
-  );
+    return (
+        <Text
+            font={font}
+            fontSize={fontSizes[index]}
+            anchorY="bottom"
+            anchorX="right"
+            position={positions[index]}
+            material-toneMapped={false}
+            color="white"
+            transparent
+            opacity={opacity}
+            lineHeight={lineHeight}
+            fontWeight={fontWeight}
+        >
+            {texts[index]}
+        </Text>
+    );
 };

@@ -40,13 +40,13 @@ function useScroll(delay= 500) {
     }, [delay]);
 
     useEffect(() => {
-        window.addEventListener('wheel', handleScroll, { passive: true });
+        // window.addEventListener('wheel', handleScroll, { passive: true });
         window.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('touchmove', handleScroll, { passive: true });
+        // window.addEventListener('touchmove', handleScroll, { passive: true });
         return () => {
-            window.removeEventListener('wheel', handleScroll);
+            // window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('touchmove', handleScroll);
+            // window.removeEventListener('touchmove', handleScroll);
             clearTimeout(timeoutRef.current);
         };
     },[handleScroll]);

@@ -2,11 +2,11 @@ import { styled } from "styled-components";
 
 
 export const StyledHeader = styled.header`
-    border-radius: none;
     position: fixed;
-    width: 100%;
     z-index: 100;
-    backdrop-filter: ${props => props.$headerBackground && "blur(10px)"};
+    width: 100%;
+    border-radius: none;
+    backdrop-filter: ${p => p.$isScrolled && "blur(10px)"};
     
     
     .header-container{
@@ -84,10 +84,14 @@ export const StyledHeader = styled.header`
     .lang-btn{
         padding: 5px 10px;
         border-radius: 15px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
         background-color: ${p => p.theme.color.text_color};
         color: ${p => p.theme.color.main_color};
+
+        @media screen and (min-width: 768px){
+            font-size: min(calc(18px + (6 * ((100vw - 768px) / 672))), 24px);
+        }
     }
 
     .chose-lang-cont{
@@ -110,6 +114,11 @@ export const StyledHeader = styled.header`
         background-color: ${p => p.theme.color.second_bg_color};
         border-radius: 15px;
         box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px 5px;
+        font-size: 18px;
+
+        @media screen and (min-width: 768px){
+            font-size: min(calc(18px + (6 * ((100vw - 768px) / 672))), 24px);
+        }
     }
 
     

@@ -12,6 +12,8 @@ export const LinkListStyled = styled.div`
             align-items: center;
             justify-content: center;
             gap: 5px;
+            font-size: min(calc(18px + (6 * ((100vw - 768px) / 672))), 24px);
+            width: fit-content;
         }
 
         @media screen and (min-width: 840px){
@@ -34,6 +36,11 @@ export const LinkListStyled = styled.div`
                 &:after{
                     position: absolute;
                 }
+            }
+
+            & .header-icon{
+                width: 24px;
+                height: 24px;
             }
         }
 
@@ -72,6 +79,7 @@ export const LinkListStyled = styled.div`
                     fill ${p => p.theme.transition.main_transition};
 
         @media screen and (min-width: 768px){
+            max-width: none;
             &:after{
                 content: '';
                 width: 100%;

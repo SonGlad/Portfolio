@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
-import BackGroundImage from "../assets/images/bg_image.webp";
+
 
 export const GlobalStyle = createGlobalStyle`
    
@@ -10,19 +10,13 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', 'Racing Sans One', sans-serif; 
         font-weight: 500;
         font-size: 62,5%;
-        overflow-x: hidden;
         letter-spacing: 0.02em;
         color: ${(props) => props.theme.color.text_color};
         background-color: ${(props) => props.theme.color.bg_color};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: linear-gradient(rgba(8, 27, 41, 1), rgba(8, 27, 41, 0.5)), 
-                    url(${BackGroundImage});
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
     }
-    
+   
 
     a {
         text-decoration: none;

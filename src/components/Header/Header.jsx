@@ -16,18 +16,10 @@ export const Header = ({langArray, setLangValue, langToShow}) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const mobileMenu = useRef(null);
     const langCont = useRef(null);
-    const { renderMob } = useWindowSize();
-
-
-    const handleScroll = useCallback(() => {
-        if (window.scrollY > 60) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
-    },[]);
-
-   
+    const { renderMob } = useWindowSize();  
+    
+ 
+    
     const toggleLangMenu = () => {
         setActiveLangCont(prevState => !prevState);
     };
@@ -79,6 +71,15 @@ export const Header = ({langArray, setLangValue, langToShow}) => {
     },[setMobMenu, setActiveLangCont]);
 
 
+    const handleScroll = useCallback(() => {
+        if (window.scrollY > 60) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    },[]);   
+
+
     useEffect(() => {
         document.addEventListener('click', onBackdropClick);
         document.addEventListener('keydown', handleKeyPress);
@@ -94,7 +95,7 @@ export const Header = ({langArray, setLangValue, langToShow}) => {
 
 
     return(
-        <StyledHeader $headerBackground={isScrolled}>
+        <StyledHeader $isScrolled={isScrolled}>
             <Container>
                 <div className='header-container'>
                     <ScrollIntoView className="logo-link order-one" selector="#HeroSection">

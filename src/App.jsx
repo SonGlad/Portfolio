@@ -1,17 +1,15 @@
 import Facebook1 from "./tracking/Facebook1";
 import Facebook2 from "./tracking/Facebook2";
-import { useWindowSize }from "./custom-hooks/hooks";
 import { useState, useEffect} from "react";
-import { ParticlesComponent }from "./components/particles/particles";
 import { useTranslation } from 'react-i18next';
 import { Header } from "./components/Header/Header";
 import { HeroSection, AboutSection, StackSectionS, PortfolioSectionS, ContactSection } from "./components/Section/Section";
 import { Container } from "./components/Container/Container";
 import { CanvasComponent } from "./components/Canvas/Canvas";
+import { Backdrop } from "./components/Backdrop/Backdrop";
 
 
 export const App= () => {
-  const { renderPC } = useWindowSize();
   const { i18n } = useTranslation();
   const savedLang = localStorage.getItem('language');
   const initialLang = savedLang || i18n.language.split('-')[0].toUpperCase();
@@ -65,16 +63,16 @@ export const App= () => {
       {/* <Facebook1/> */}
       {/* {isContactModal && <Facebook2/>} */}
       {/* {isLoading && <FormLoading/>} */}
-      {renderPC && <ParticlesComponent id='particles'/>}
+      <Backdrop/>
       <Header
         langArray={langArray}
         setLangValue={setLangValue}
         langToShow={langToShow}
-      />
+        />
       <CanvasComponent/>
       <HeroSection propsId={'HeroSection'}>
         <Container>
-
+          
         </Container>
       </HeroSection>
       <AboutSection propsId={'AboutSection'}>
