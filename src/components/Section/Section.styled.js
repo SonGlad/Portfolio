@@ -1,12 +1,51 @@
 import { styled } from "styled-components";
 
 
-export const SectionStyle = styled.section`
-	/* min-height: 100vh;
-    display: flex;
-    align-items: center;
-	flex-direction: column;
-    font-size: 40px;
-	font-family: 'Open Sans', sans-serif;
-    color: #fff; */
+export const HeroSectionStyle = styled.section`
+    width: 100%;
+    @media screen and (min-width: 768px){
+        position: relative;
+        z-index: 1;
+        height: 1000px;
+        background: pink;
+        pointer-events: auto;
+    }
+`
+
+
+export const AboutSectionStyled = styled.section`
+    width: 100%;
+    @media screen and (min-width: 768px){
+        position: relative;
+        z-index: 1;
+        height: 1000px;
+        background-color: transparent;
+        pointer-events: auto;
+    }
+`
+
+export const StackSectionStyled = styled.section`
+    width: 100%;
+    @media screen and (min-width: 768px){
+        position: relative;
+        z-index: 1;
+        height: 1000px;
+        background-color: transparent;
+        pointer-events: auto;
+    }
+`
+
+export const PortfolioSectionStyled = styled.section`
+    width: 100%;
+    @media screen and (min-width: 768px){
+        position: relative;
+        z-index: 1;
+        height: 1000px;
+        background-color: transparent;
+        pointer-events: auto;
+    }
+`
+
+export const ContactSectionStyled = styled.section`
+    width: 100%;
 `

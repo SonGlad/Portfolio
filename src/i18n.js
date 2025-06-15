@@ -16,7 +16,7 @@ i18next
         fallbackLng: 'en',
         // lng: 'ro',
         backend: {
-            loadPath: '/locales/{{lng}}/translation.json'
+            loadPath: '/Portfolio/locales/{{lng}}/translation.json'
         },
         react: {
             useSuspense: true

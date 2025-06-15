@@ -1,7 +1,6 @@
 import { ContainersStyle } from './Container.styled';
 
 
-
 export const Container = ({children}) => {
     return(
         <ContainersStyle>
@@ -9,3 +8,4 @@ export const Container = ({children}) => {
         </ContainersStyle>
     );
 };
+

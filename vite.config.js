@@ -24,7 +24,7 @@ export default defineConfig({
       include: "**/*.svg",
     }),
   ],
-  base: '/',
+  base: '/Portfolio',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
