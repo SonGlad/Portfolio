@@ -2,6 +2,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { RingLoaderStyled, LoaderStyled } from "./CustomLoaders.styled";
 import { Html, useProgress } from "@react-three/drei";
+import { useWindowSize } from "../../custom-hooks/hooks";
 
 
 
@@ -22,18 +23,31 @@ export const Loader = () => {
 
 
 export const CanvasLoader = () => {
-    const { progress } = useProgress();  
+    const { progress } = useProgress();
+    const { renderMob } = useWindowSize();  
 
     return (
         <Html>
             <span></span>
-            <p style={{fontSize: "48px",
-                color:"#f1f1f1",
-                fontWeight:"800",
-                marginTop:"-120px",
-                marginLeft:"-100px"
-            }} 
-            >{progress.toFixed(2)}%</p>
+            {renderMob ? (
+                <p style={{fontSize: "24px",
+                    color:"#ededed",
+                    fontWeight:"800",
+                    marginTop:"-120px",
+                    marginLeft:"-40px"
+                }}>
+                    {progress.toFixed(2)}%
+                </p>
+            ) : (
+                <p style={{fontSize: "48px",
+                    color:"#ededed",
+                    fontWeight:"800",
+                    marginTop:"-120px",
+                    marginLeft:"-100px"
+                }}>
+                    {progress.toFixed(2)}%
+                </p>
+            )}
         </Html>
     );
 };

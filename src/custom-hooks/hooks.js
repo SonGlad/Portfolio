@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
+
+
 
 function useWindowSize() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -23,35 +25,34 @@ function useWindowSize() {
 };
 
 
-function useScroll(delay= 500) {
-    const [isScrolling, setIsScrolling] = useState(false);
-    const timeoutRef = useRef(null);
-  
 
-    const handleScroll = useCallback(() => {
-        setIsScrolling(true);
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-
-        timeoutRef.current = setTimeout(() => {
-            setIsScrolling(false);
-        }, delay);
-    }, [delay]);
+function useResponsiveFov() {
+    const [fov, setFov] = useState(60);
 
     useEffect(() => {
-        // window.addEventListener('wheel', handleScroll, { passive: true });
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        // window.addEventListener('touchmove', handleScroll, { passive: true });
-        return () => {
-            // window.removeEventListener('wheel', handleScroll);
-            window.removeEventListener('scroll', handleScroll);
-            // window.removeEventListener('touchmove', handleScroll);
-            clearTimeout(timeoutRef.current);
-        };
-    },[handleScroll]);
+        const handleResize = () => {
+            const width = window.innerWidth;
+            const minWidth = 320;
+            const maxWidth = 1200;
+            const minFov = 38;
+            const maxFov = 60;
 
-    return { isScrolling };
-}
+            const clampedWidth = Math.min(Math.max(width, minWidth), maxWidth);
+
+            const ratio = (clampedWidth - minWidth) / (maxWidth - minWidth);
+            const newFov = maxFov - ratio * (maxFov - minFov);
+
+            setFov(newFov);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return fov;
+};
+
   
-export { useWindowSize, useScroll };
+export { useWindowSize, useResponsiveFov };

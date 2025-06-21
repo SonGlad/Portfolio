@@ -12,7 +12,7 @@ export const LinkListStyled = styled.div`
             align-items: center;
             justify-content: center;
             gap: 5px;
-            font-size: min(calc(18px + (6 * ((100vw - 768px) / 672))), 24px);
+            font-size: min(calc(16px + (6 * ((100vw - 768px) / 672))), 24px);
             width: fit-content;
         }
 
@@ -38,6 +38,13 @@ export const LinkListStyled = styled.div`
                 }
             }
 
+            & .header-icon{
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media screen and (min-width: 1200px){
             & .header-icon{
                 width: 24px;
                 height: 24px;

@@ -7,6 +7,7 @@ import ContactIcon from "../../../assets/svg-icons//contact.svg";
 import { useInView } from 'react-intersection-observer';
 import ScrollIntoView from 'react-scroll-into-view';
 import { useTranslation } from 'react-i18next';
+import { useWindowSize } from "../../../custom-hooks/hooks";
 
 
 
@@ -17,6 +18,7 @@ export const LinkList = ({toggleMenuBox}) => {
         threshold: 0.1,
     });
     const { t } = useTranslation();
+    const { renderPC } = useWindowSize();
 
 
 
@@ -24,7 +26,7 @@ export const LinkList = ({toggleMenuBox}) => {
         <LinkListStyled>
             <ul ref={ref} className={`link-list ${inView ? 'visible' : ''}`}>
                 <li className="link-list-item" style={{'--i': 1}}>
-                    <ScrollIntoView selector='#HeroSection' className='nav-link' onClick={toggleMenuBox}>
+                    <ScrollIntoView selector={renderPC ? "#HeroSection" : "#Canvas"} className='nav-link' onClick={toggleMenuBox}>
                         <HomeIcon className="header-icon" width={16} height={16}/>
                         <span className="header-link-text">{t('header.navMenu1')}</span>
                     </ScrollIntoView>

@@ -7,6 +7,9 @@ import { HeroSection, AboutSection, StackSectionS, PortfolioSectionS, ContactSec
 import { Container } from "./components/Container/Container";
 import { CanvasComponent } from "./components/Canvas/Canvas";
 import { Backdrop } from "./components/Backdrop/Backdrop";
+import { useWindowSize } from "./custom-hooks/hooks";
+import { AboutUsSection } from "./components/AboutSection/About";
+import { StackSection } from "./components/StackSection/StackSection";
 
 
 export const App= () => {
@@ -15,6 +18,7 @@ export const App= () => {
   const initialLang = savedLang || i18n.language.split('-')[0].toUpperCase();
   const [langValue, setLangValue] = useState(initialLang);
   const [langToShow, setLangToShow] = useState(initialLang);
+  const { renderPC } = useWindowSize();
 
 
   const langArray = [
@@ -29,9 +33,6 @@ export const App= () => {
       case "EN":
         document.documentElement.lang = 'en'
         break;
-      case "RO":
-        document.documentElement.lang = 'ro'
-        break;
       case "UA":
         document.documentElement.lang = 'uk'
         break;
@@ -39,7 +40,7 @@ export const App= () => {
         document.documentElement.lang = 'ru'
         break;
       default:
-        document.documentElement.lang = 'ro'
+        document.documentElement.lang = 'en'
     }
   },[langValue])
   
@@ -55,7 +56,6 @@ export const App= () => {
     setLangToShow(languageCode);
   },[langValue]);
 
-
   
 
   return (
@@ -69,32 +69,40 @@ export const App= () => {
         setLangValue={setLangValue}
         langToShow={langToShow}
         />
-      <CanvasComponent/>
-      <HeroSection propsId={'HeroSection'}>
-        <Container>
-          
-        </Container>
-      </HeroSection>
-      <AboutSection propsId={'AboutSection'}>
-        <Container>
-          
-        </Container>
-      </AboutSection>
-      <StackSectionS propsId={'StackSection'}>
-        <Container>
-          
-        </Container>
-      </StackSectionS>
-      <PortfolioSectionS propsId={'PortfolioSection'}>
-        <Container>
-          
-        </Container>
-      </PortfolioSectionS>
-      <ContactSection propsId={'ContactSection'}>
-        <Container>
+      <main stlyle={{position: "relative"}}>
+        <CanvasComponent langToShow={langToShow} propsId={'Canvas'}/>
+        {renderPC && 
+          <HeroSection propsId={'HeroSection'}>
+            <Container>
+            </Container>
+          </HeroSection>
+        }
 
-        </Container>
-      </ContactSection>
+        <AboutSection propsId={'AboutSection'}>
+          <Container>
+            <AboutUsSection/>
+          </Container>
+        </AboutSection>
+
+        <StackSectionS propsId={'StackSection'}>
+          <Container>
+            <StackSection/>
+          </Container>
+        </StackSectionS>
+
+
+
+        <PortfolioSectionS propsId={'PortfolioSection'}>
+          <Container>
+            
+          </Container>
+        </PortfolioSectionS>
+        <ContactSection propsId={'ContactSection'}>
+          <Container>
+
+          </Container>
+        </ContactSection>
+      </main>
     </>
   );
 };

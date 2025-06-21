@@ -54,11 +54,26 @@ export const StyledHeader = styled.header`
         left: 0;
         fill: ${p => p.theme.color.text_color};
         transition: fill ${p => p.theme.transition.main_transition};
-        animation: slideLogoRight 1s ease forwards;
+        animation: slideLogoMob 1s ease forwards;
+
+        @media screen and (min-width: 768px){
+            animation: slideLogoRight 1s ease forwards;  
+        }
 
         &:hover, &:focus{
             fill: ${p => p.theme.color.main_color};
         } 
+    }
+
+    @keyframes slideLogoMob {
+        0%{
+            opacity: 0;
+            transform: translateY(-100px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
     }
 
     @keyframes slideLogoRight {
@@ -77,7 +92,6 @@ export const StyledHeader = styled.header`
         
         @media screen and (min-width: 768px){
             margin-left: 30px;
-            /* margin-left: auto; */
         }
     }
 
@@ -88,9 +102,34 @@ export const StyledHeader = styled.header`
         font-weight: 700;
         background-color: ${p => p.theme.color.text_color};
         color: ${p => p.theme.color.main_color};
+        animation: langBTNAnimationMob 1s ease forwards;
+
 
         @media screen and (min-width: 768px){
-            font-size: min(calc(18px + (6 * ((100vw - 768px) / 672))), 24px);
+            font-size: min(calc(16px + (6 * ((100vw - 768px) / 672))), 24px);
+            animation: langBTNAnimation 1s ease forwards;
+        }
+    }
+
+    @keyframes langBTNAnimationMob {
+        0%{
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+    @keyframes langBTNAnimation {
+        0%{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0px);
         }
     }
 
@@ -117,7 +156,7 @@ export const StyledHeader = styled.header`
         font-size: 18px;
 
         @media screen and (min-width: 768px){
-            font-size: min(calc(18px + (6 * ((100vw - 768px) / 672))), 24px);
+            font-size: min(calc(16px + (6 * ((100vw - 768px) / 672))), 24px);
         }
     }
 

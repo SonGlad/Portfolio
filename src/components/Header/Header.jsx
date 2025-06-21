@@ -16,7 +16,7 @@ export const Header = ({langArray, setLangValue, langToShow}) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const mobileMenu = useRef(null);
     const langCont = useRef(null);
-    const { renderMob } = useWindowSize();  
+    const { renderMob, renderPC } = useWindowSize();  
     
  
     
@@ -98,7 +98,7 @@ export const Header = ({langArray, setLangValue, langToShow}) => {
         <StyledHeader $isScrolled={isScrolled}>
             <Container>
                 <div className='header-container'>
-                    <ScrollIntoView className="logo-link order-one" selector="#HeroSection">
+                    <ScrollIntoView className="logo-link order-one" selector={renderPC ? "#HeroSection" : "#Canvas"}>
                         <img className="header-logo" src={Logo} alt="logo"/> 
                     </ScrollIntoView>
                     <div className="lang-cont order-two" ref={langCont}>

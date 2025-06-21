@@ -23,5 +23,4 @@ export const LoaderStyled = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1;
-
 `

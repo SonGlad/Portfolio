@@ -1,5 +1,10 @@
-import {HeroSectionStyle, AboutSectionStyled, StackSectionStyled, PortfolioSectionStyled, ContactSectionStyled} from './Section.styled';
-// import { useEffect, useCallback, useState, useRef } from 'react';
+import {
+    HeroSectionStyle, 
+    AboutSectionStyled, 
+    StackSectionStyled, 
+    PortfolioSectionStyled, 
+    ContactSectionStyled
+} from './Section.styled';
 
 
 
