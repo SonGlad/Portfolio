@@ -47,8 +47,10 @@ export const CodingChartsStyled = styled.div`
     .border-inner{
         width: 30px;
         height: 30px;
-        border: 2px solid ${p => p.theme.color.main_color};
-        border-radius: 50%;
+        /* border: 2px solid ${p => p.theme.color.main_color}; */
+        /* border-radius: 50%; */
+        outline: 2px solid ${p => p.theme.color.main_color};
+        outline-offset: -3px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -57,8 +59,8 @@ export const CodingChartsStyled = styled.div`
             font-size: 12px;
             position: relative;
             z-index: 2;
-            opacity: 0;
-            transition:  opacity 0.350s ease 0.350s;
+            /* opacity: 0;
+            transition:  opacity 0.350s ease 0.350s; */
         }
 
         @media screen and (min-width: 1200px){
@@ -72,7 +74,7 @@ export const CodingChartsStyled = styled.div`
         }
     }
 
-    .active1 .border-inner,
+    /* .active1 .border-inner,
     .active2 .border-inner,
     .active3 .border-inner,
     .active4 .border-inner,
@@ -82,23 +84,22 @@ export const CodingChartsStyled = styled.div`
             opacity: 1;
             transition: opacity 0.350s ease  0.350s;
         }
-    }
+    } */
 
 
     .absolute{
         position: absolute;
-        z-index: 1;
+        z-index: 3;
         top: 0;
         left: 0;
-        width: 50px;
-        height: 50px;
+        width: 100%;
+        height: 100%;
         background-color: ${p => p.theme.color.bg_color};
-
-        transform: translateY(0%);
-        transition: transform 0.350s ease  0.350s;
+        /* transform: translateY(0%);
+        transition: transform 0.350s ease  0.350s; */
     }
 
-    .active1 .absolute,
+    /* .active1 .absolute,
     .active2 .absolute,
     .active3 .absolute,
     .active4 .absolute,
@@ -106,7 +107,7 @@ export const CodingChartsStyled = styled.div`
     .active6 .absolute{
         transform: translateY(100%);
         transition: transform transform 0.350s ease; 
-    }
+    } */
 
     .border-to-bottom{
         width: 2px;
@@ -121,8 +122,8 @@ export const CodingChartsStyled = styled.div`
             background-color: ${p => p.theme.color.main_color};
             width: 2px;
             z-index: 3;
-            height: 0%;
-            transition: height 0.350s ease;
+            height: 100%;
+            /* transition: height 0.350s ease; */
         }
 
         @media screen and (min-width: 1200px) {
@@ -134,7 +135,7 @@ export const CodingChartsStyled = styled.div`
     }
 
 
-    .active1 .border-to-bottom,
+    /* .active1 .border-to-bottom,
     .active2 .border-to-bottom,
     .active3 .border-to-bottom,
     .active4 .border-to-bottom,
@@ -144,17 +145,18 @@ export const CodingChartsStyled = styled.div`
             height: 100%;
             transition: height 0.350s ease 0.350s;
         }
-    }
+    } */
 
 
     .phases-content-cont{
         width: 100%;
         padding: 15px 0;
+        opacity: 0;
         
-        @media screen and (min-width: 768px){
+        /* @media screen and (min-width: 768px){
             opacity: 0;
             transition: opacity 0.70s ease;
-        }
+        } */
 
         
         @media screen and (min-width: 1200px) {
@@ -165,7 +167,7 @@ export const CodingChartsStyled = styled.div`
         }
     }
 
-    .active1 .phases-content-cont,
+    /* .active1 .phases-content-cont,
     .active2 .phases-content-cont,
     .active3 .phases-content-cont,
     .active4 .phases-content-cont,
@@ -175,7 +177,7 @@ export const CodingChartsStyled = styled.div`
             opacity: 1;
             animation: slide-rotate-hor-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
         }
-    }
+    } */
 
 
     @keyframes slide-rotate-hor-bottom {
@@ -217,14 +219,14 @@ export const CodingChartsStyled = styled.div`
 
         @media screen and (min-width: 1200px){
             width: 45%;
-            transform: translateX(-50%);
+            /* transform: translateX(-50%);
             opacity: 0;
             transition: transform 0.7s ease,
-                        opacity 0.7s ease;
+                        opacity 0.7s ease; */
         }
     }
 
-    .active1 .image-padding-cont,
+    /* .active1 .image-padding-cont,
     .active2 .image-padding-cont,
     .active3 .image-padding-cont,
     .active4 .image-padding-cont,
@@ -234,7 +236,7 @@ export const CodingChartsStyled = styled.div`
             transform: translateX(0%);
             opacity: 1;
         }
-    } 
+    }  */
     
 
     .content-padding-cont{
@@ -242,14 +244,14 @@ export const CodingChartsStyled = styled.div`
             width: 45%;
             display: flex;
             align-items: center;
-            transform: translateX(50%);
+            /* transform: translateX(50%);
             opacity: 0;
             transition: transform 0.7s ease,
-                        opacity 0.7s ease;
+                        opacity 0.7s ease; */
         }
     }
 
-    .active1 .content-padding-cont,
+    /* .active1 .content-padding-cont,
     .active2 .content-padding-cont,
     .active3 .content-padding-cont,
     .active4 .content-padding-cont,
@@ -259,7 +261,7 @@ export const CodingChartsStyled = styled.div`
             transform: translateX(0%);
             opacity: 1;
         }
-    }
+    } */
 
 
     .text-cont{

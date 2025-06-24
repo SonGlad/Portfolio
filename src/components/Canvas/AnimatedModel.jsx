@@ -2,16 +2,11 @@ import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
-import gsap from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from "@gsap/react";
 import { TextComponent } from './TextComponent';
+import { useScrollAnimation } from '../../custom-hooks/allGSAPAnimations';
 
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-
-export const AnimatedModel = ({langToShow, renderPC}) => {
+export const AnimatedModel = ({ langToShow }) => {
     const { scene } = useGLTF('/Portfolio/macbook/scene.gltf');
     const groupRef = useRef();
     const floatRef = useRef();
@@ -39,125 +34,11 @@ export const AnimatedModel = ({langToShow, renderPC}) => {
                 });
             }
         });
+
     }, [scene]);
 
 
-    useGSAP(() => {
-        if(!groupRef.current) return
-        if(renderPC){
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#descriptionCont',
-                    start: 'top bottom',
-                    end: 'bottom center',
-                    scrub: true,
-                }
-            })
-            .to(groupRef.current.scale, 
-                {
-                    x: 0.6,
-                    y: 0.6,
-                    z: 0.6,
-                    ease: 'power2.inOut'
-                },
-            )
-    
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#descriptionOne',
-                    start: 'top bottom',
-                    end: 'top center',
-                    scrub: true,
-                }
-            })
-            .to(groupRef.current.position, 
-                {
-                    x: -1.5,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-            .to(groupRef.current.rotation, 
-                {
-                    x: Math.PI / 15,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-            .to(groupRef.current.rotation, 
-                {
-                    y: Math.PI * 0.4,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#descriptionTwo',
-                    start: 'center bottom',
-                    end: 'center center',
-                    scrub: true,
-                }
-            })
-            .to(groupRef.current.position, 
-                {
-                    x: 1.5,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-            .to(groupRef.current.rotation, 
-                {
-                    x: Math.PI / 12,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-            .to(groupRef.current.rotation, 
-                {
-                    y: Math.PI * -0.25,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-    
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#descriptionThree',
-                    start: 'center bottom',
-                    end: 'center center',
-                    scrub: true,
-                }
-            })
-            .to(groupRef.current.position, 
-                {
-                    x: -1.5,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-            .to(groupRef.current.rotation, 
-                {
-                    x: Math.PI / 15,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-            .to(groupRef.current.rotation, 
-                {
-                    y: Math.PI * -1.75,
-                    ease: 'power2.inOut'
-                },
-                "<"
-            )
-    
-    
-            return () => {
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-            };
-        }
-    },[])
+    useScrollAnimation({groupRef});
  
 
     return (

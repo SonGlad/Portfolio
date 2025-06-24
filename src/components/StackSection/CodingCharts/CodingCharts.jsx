@@ -1,45 +1,79 @@
 import { CodingChartsStyled } from "./CodingCharts.styled";
 import { Chart } from "./Charts/Charts";
-import { useInView } from 'react-intersection-observer';
 import DefaultPicture from "../../../assets/images/bg_image.webp";
 import { useTranslation } from 'react-i18next';
-
+import { useRef } from "react";
+import { useScrollAnimation } from "../../../custom-hooks/allGSAPAnimations";
 
 
 export const CodingCharts = () => {
     const { t } = useTranslation();
+    const containerRef = useRef();
 
-    const [refItem1, refItem1InView] = useInView({ 
-        triggerOnce: false, 
-        threshold: 0.2,
-    });
-    const [refItem2, refItem2InView] = useInView({ 
-        triggerOnce: false, 
-        threshold: 0.2,
-    });
-    const [refItem3, refItem3InView] = useInView({ 
-        triggerOnce: false, 
-        threshold: 0.2,
-    });
-    const [refItem4, refItem4InView] = useInView({ 
-        triggerOnce: false, 
-        threshold: 0.2,
-    });
-    const [refItem5, refItem5InView] = useInView({ 
-        triggerOnce: false, 
-        threshold: 0.2,
-    });
-    const [refItem6, refItem6InView] = useInView({ 
-        triggerOnce: false, 
-        threshold: 0.2,
-    });
-  
-    
+    useScrollAnimation({containerRef}); 
+
+    // useGSAP(() => {
+    //     if(!container.current) return;
+    //     if(renderMob){
+    //         gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: '.phases-content-cont',
+    //                 start: 'top bottom',
+    //                 end: 'bottom center',
+    //                 scrub: true,
+    //                 markers: true
+
+    //             }
+    //         })
+    //         .to('.phases-content-cont', 
+    //             {
+    //                 opacity: 1,
+    //                 ease: 'power2.inOut'
+    //             },
+    //         )
+    //     }
+    //     return () => {
+    //         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    //     };
+    // }, {scope: container})
+
+
+
+    // useGSAP(() => {
+    //     if (!container.current) return;
+    //     // console.log(1);
+        
+
+    //         gsap.utils.toArray('.phases-content-cont').forEach((el) => {
+    //             gsap.fromTo(
+    //                 el,
+    //                 { opacity: 0 },
+    //                 {
+    //                 opacity: 1,
+    //                 ease: 'none',
+    //                 scrollTrigger: {
+    //                     trigger: el,
+    //                     start: 'top bottom',
+    //                     end: 'top 40%',
+    //                     scrub: true,
+    //                     markers: true
+    //                 },
+    //                 }
+    //             );
+    //         });
+
+
+    //     return () => {
+    //         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    //     };
+
+    // }, { scope: container });
+      
 
     return(
         <CodingChartsStyled>
-            <ul className="phases-list">
-                <li className={`phases-item ${refItem1InView ? 'active1' : ''}`} ref={refItem1}>
+            <ul className="phases-list" ref={containerRef}>
+                <li className="phases-item">
                     <div className="phases-styles small-screen">
                         <div className="context">
                             <div className="border-inner">
@@ -79,7 +113,7 @@ export const CodingCharts = () => {
                         </div>
                     </div>
                 </li>
-                <li className={`phases-item ${refItem2InView ? 'active2' : ''}`} ref={refItem2}>
+                <li className="phases-item">
                     <div className="phases-styles small-screen">
                         <div className="context">
                             <div className="border-inner">
@@ -119,7 +153,7 @@ export const CodingCharts = () => {
                         </div>
                     </div>
                 </li>
-                <li className={`phases-item ${refItem3InView ? 'active3' : ''}`} ref={refItem3}>
+                <li className="phases-item">
                     <div className="phases-styles small-screen">
                         <div className="context">
                             <div className="border-inner">
@@ -159,7 +193,7 @@ export const CodingCharts = () => {
                         </div>
                     </div>
                 </li>
-                <li className={`phases-item ${refItem4InView ? 'active4' : ''}`} ref={refItem4}>
+                <li className="phases-item">
                     <div className="phases-styles small-screen">
                         <div className="context">
                             <div className="border-inner">
@@ -199,7 +233,7 @@ export const CodingCharts = () => {
                         </div>
                     </div>
                 </li>
-                <li className={`phases-item ${refItem5InView ? 'active5' : ''}`} ref={refItem5}>
+                <li className="phases-item">
                     <div className="phases-styles small-screen">
                         <div className="context">
                             <div className="border-inner">
@@ -239,7 +273,7 @@ export const CodingCharts = () => {
                         </div>
                     </div>
                 </li>
-                <li className={`phases-item ${refItem6InView ? 'active6' : ''}`} ref={refItem6}>
+                <li className="phases-item">
                     <div className="phases-styles small-screen">
                         <div className="context">
                             <div className="border-inner">
