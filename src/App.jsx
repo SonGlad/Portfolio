@@ -91,17 +91,17 @@ export const App= () => {
         </StackSectionS>
 
 
-
+{/* 
         <PortfolioSectionS propsId={'PortfolioSection'}>
           <Container>
             
           </Container>
-        </PortfolioSectionS>
-        <ContactSection propsId={'ContactSection'}>
+        </PortfolioSectionS> */}
+        {/* <ContactSection propsId={'ContactSection'}>
           <Container>
 
           </Container>
-        </ContactSection>
+        </ContactSection> */}
       </main>
     </>
   );

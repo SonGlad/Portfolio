@@ -106,7 +106,6 @@ export const ProjectStyled = styled.div`
 
     .colored-area div p{
         position: absolute;
-        display: block;
         text-align: center;
         width: 24px;
         top: 0;

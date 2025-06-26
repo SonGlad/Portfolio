@@ -1,19 +1,49 @@
-// import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
 import { useWindowSize } from "./hooks";
+import { useTranslation } from "react-i18next";
 
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 
 export const useScrollAnimation = ({groupRef, containerRef}) => {
-    const { renderPC, renderMob } = useWindowSize();
+    const { renderPC } = useWindowSize();
+    const { t } = useTranslation();
 
         
     useGSAP(() => {
-        if(renderPC){
+        if (!renderPC) {
+            if (containerRef?.current) { 
+                gsap.utils.toArray('.phases-item').forEach((el) => {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 90%',
+                            end: 'top 20%',
+                            scrub: true,
+                        },
+                    })
+                    .to(el.querySelector('.phases-content-cont'), {
+                        opacity: 1,
+                        ease: 'power2.inOut'
+                    })
+                    gsap.timeline({
+                        scrollTrigger:{
+                            trigger: el,
+                            start: 'top bottom',
+                            end: 'bottom 80%',
+                            scrub: true,
+                        }
+                    })
+                    .to(el.querySelector('.absolute'), {
+                        yPercent: 100,
+                        ease: 'power2.inOut'
+                    })
+                });            
+            }
+        } else {
             if (groupRef?.current) {
                 gsap.timeline({
                     scrollTrigger: {
@@ -32,6 +62,8 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     },
                 )
         
+
+
                 gsap.timeline({
                     scrollTrigger: {
                         trigger: '#descriptionOne',
@@ -61,6 +93,8 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     },
                     "<"
                 )
+
+
 
                 gsap.timeline({
                     scrollTrigger: {
@@ -92,6 +126,8 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     "<"
                 )
         
+
+
                 gsap.timeline({
                     scrollTrigger: {
                         trigger: '#descriptionThree',
@@ -121,35 +157,52 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     },
                     "<"
                 )
-            }
-        }
-        if (renderMob) {
-            if (containerRef?.current) {                
-                gsap.utils.toArray('.phases-content-cont').forEach((el) => {
-                    console.log(el);
-                    
-                    gsap.fromTo(
-                        el,
-                        { opacity: 0 },
-                        {
-                        opacity: 1,
-                        ease: 'none',
+
+                
+
+                gsap.utils.toArray('.phases-item').forEach((el) => {
+                    gsap.timeline({
                         scrollTrigger: {
                             trigger: el,
                             start: 'top bottom',
-                            end: 'top 40%',
+                            end: 'center center',
                             scrub: true,
-                            markers: true
                         },
+                    })
+                    .to(el.querySelector('.left-animation-block'), {
+                        opacity: 1,
+                        translateX: 0,
+                        ease: 'power2.inOut'
+                    })
+                    .to(el.querySelector('.right-animation-block'), {
+                        opacity: 1,
+                        translateX: 0,
+                        ease: 'power2.inOut'
+                    },"<")
+                    gsap.timeline({
+                        scrollTrigger:{
+                            trigger: el,
+                            start: 'top 85%',
+                            end: 'bottom 80%',
+                            scrub: true,
                         }
-                    );
-                });
-                ScrollTrigger.refresh();
+                    })
+                    .to(el.querySelector('.absolute'), {
+                        yPercent: 100,
+                        ease: 'power2.inOut'
+                    })
+                }); 
             }
         }
+
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 200);
+        });
         // return () => {
         //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         // };
        
-    }, { scope: containerRef })
+    }, { scope: containerRef, dependencies: [renderPC, t]})
 }
