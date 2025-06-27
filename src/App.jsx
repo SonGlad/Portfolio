@@ -1,5 +1,5 @@
-import Facebook1 from "./tracking/Facebook1";
-import Facebook2 from "./tracking/Facebook2";
+// import Facebook1 from "./tracking/Facebook1";
+// import Facebook2 from "./tracking/Facebook2";
 import { useState, useEffect} from "react";
 import { useTranslation } from 'react-i18next';
 import { Header } from "./components/Header/Header";
@@ -108,7 +108,7 @@ export const App= () => {
   return (
     <>
       {/* <Facebook1/> */}
-      {isContactModal && <Facebook2/>}
+      {/* {isContactModal && <Facebook2/>} */}
       {isLoading && <FormLoading/>}
       <Backdrop/>
       <Header

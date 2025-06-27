@@ -1,6 +1,6 @@
 import PuffLoader from "react-spinners/PuffLoader";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import { RingLoaderStyled, LoaderStyled } from "./CustomLoaders.styled";
+import { RingLoaderStyled, LoaderStyled, FormStyled } from "./CustomLoaders.styled";
 import { Html, useProgress } from "@react-three/drei";
 import { useWindowSize } from "../../custom-hooks/hooks";
 
