@@ -1,20 +1,26 @@
-export const ShowRules = (values, touched, errors, form) => {
-  const getFieldName = (fieldName, form) => {
+import Error from "../assets/svg-icons/error.svg";
+import Correct from "../assets/svg-icons/correct.svg";
+
+
+export const ShowRules = (values, touched, errors, t) => {
+
+
+  const getFieldName = (fieldName, t) => {
     switch (fieldName) {
       case 'name':
         return {
-          label: form.labelValue1,
-          message: form.nameCorrect
+          label: t("contact.form.labelValue1"),
+          message: t("contact.form.nameCorrect")
         };
       case 'email':
         return {
-          label: form.labelValue2,
-          message: form.emailCorrect
+          label: t("contact.form.labelValue2"),
+          message: t("contact.form.emailCorrect")
         };
       case 'phone':
         return {
-          label: form.labelValue3,
-          message: form.phoneCorrect
+          label: t("contact.form.labelValue3"),
+          message: t("contact.form.phoneCorrect")
         };
       default:
         return {
@@ -24,6 +30,8 @@ export const ShowRules = (values, touched, errors, form) => {
     }
   };
 
+
+
   const getInputClass = (fieldName) => {
     return !values[fieldName]
       ? ""
@@ -32,19 +40,21 @@ export const ShowRules = (values, touched, errors, form) => {
       : "SuccessInput";
   };
 
+
+
   const getInputAlert = (fieldName) => {
-    const { label, message } = getFieldName(fieldName, form)
+    const { label, message } = getFieldName(fieldName, t)
     return !values[fieldName] ? (
       ""
     ) : touched && errors[fieldName] ? (
       <>
         <p className="ErrorText">{errors[fieldName]}</p>
-        <div className="ImgError" />
+        <div className="ImgError"><Error/></div>
       </>
     ) : (
       <>
         <p className="SuccessText">{`${label} ${message}`}</p>
-        <div className="ImgCorrect" />
+        <div className="ImgCorrect"><Correct/></div>
       </>
     );
   };

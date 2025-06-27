@@ -70,3 +70,21 @@ export const Loading = () => {
         </LoaderStyled>
     );
 };
+
+
+export const FormLoading = () => {
+    return (
+        <FormStyled
+            style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', backdropFilter: 'blur(5px)'}}
+        >
+            <PuffLoader
+                color={"#f1f1f1"}
+                loading = {true} 
+                size={150}
+                speedMultiplier={1}
+                aria-label="Loading Spinner"
+                data-testid="loader" 
+            />
+        </FormStyled>
+    );
+};

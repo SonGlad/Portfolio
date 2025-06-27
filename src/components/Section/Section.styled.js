@@ -36,13 +36,14 @@ export const PortfolioSectionStyled = styled.section`
     width: 100%;
     background-color: transparent;
     pointer-events: auto;
-    /* position: relative; */
-    /* z-index: 2; */
-
-    @media screen and (min-width: 768px){
-    }
+    position: relative;
+    z-index: 4;
 `
 
 export const ContactSectionStyled = styled.section`
     width: 100%;
+    background-color: transparent;
+    pointer-events: auto;
+    position: relative;
+    z-index: 4;
 `

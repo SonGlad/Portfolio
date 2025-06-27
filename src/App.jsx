@@ -10,6 +10,11 @@ import { Backdrop } from "./components/Backdrop/Backdrop";
 import { useWindowSize } from "./custom-hooks/hooks";
 import { AboutUsSection } from "./components/AboutSection/About";
 import { StackSection } from "./components/StackSection/StackSection";
+import { PortfolioSection } from "./components/PortfolioSection/Portfolio";
+import { Modal } from "./components/Modal/Modal";
+import { Contacts } from "./components/ContactSection/Contacts";
+import { FormLoading } from "./components/CustomLoaders/CustomLoaders";
+import { Footer } from "./components/Footer/Footer";
 
 
 export const App= () => {
@@ -19,6 +24,11 @@ export const App= () => {
   const [langValue, setLangValue] = useState(initialLang);
   const [langToShow, setLangToShow] = useState(initialLang);
   const { renderPC } = useWindowSize();
+  const [portfolioModalData, setPortfolioModalData] = useState(null);
+  const [isPortfolioModal, setPortfolioModal] = useState(false);
+  const [isContactModal, setContactModal] = useState(false);
+  const [isSuccess, setSuccess] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const langArray = [
@@ -28,7 +38,7 @@ export const App= () => {
   ];
 
 
-    useEffect(() => {
+  useEffect(() => {
     switch(langValue){
       case "EN":
         document.documentElement.lang = 'en'
@@ -56,13 +66,50 @@ export const App= () => {
     setLangToShow(languageCode);
   },[langValue]);
 
+
+  const openPortfolioModal = () => {
+    if (isContactModal) {
+      setContactModal(false);
+    }
+    setPortfolioModal(true);
+  };
+  
+  const closePortfolioModal = () => {
+    setPortfolioModal(false);
+  };
+  
+
+  const openContactModal = () => {
+    if (isPortfolioModal) {
+      setPortfolioModal(false);
+    }
+    setContactModal(true);
+  };
+
+  const closeContactModal = () => {
+    setContactModal(false);
+  };
+
+
+  useEffect(() => {
+    if (isPortfolioModal || isContactModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isPortfolioModal, isContactModal]);
+
   
 
   return (
     <>
       {/* <Facebook1/> */}
-      {/* {isContactModal && <Facebook2/>} */}
-      {/* {isLoading && <FormLoading/>} */}
+      {isContactModal && <Facebook2/>}
+      {isLoading && <FormLoading/>}
       <Backdrop/>
       <Header
         langArray={langArray}
@@ -70,7 +117,9 @@ export const App= () => {
         langToShow={langToShow}
         />
       <main stlyle={{position: "relative"}}>
+
         <CanvasComponent langToShow={langToShow} propsId={'Canvas'}/>
+
         {renderPC && 
           <HeroSection propsId={'HeroSection'}>
             <Container>
@@ -90,19 +139,37 @@ export const App= () => {
           </Container>
         </StackSectionS>
 
-
-{/* 
         <PortfolioSectionS propsId={'PortfolioSection'}>
           <Container>
-            
+            <PortfolioSection
+              openPortfolioModal={openPortfolioModal}
+              setPortfolioModalData={setPortfolioModalData}
+            />
           </Container>
-        </PortfolioSectionS> */}
-        {/* <ContactSection propsId={'ContactSection'}>
-          <Container>
+        </PortfolioSectionS>
 
+        <ContactSection propsId={'ContactSection'}>
+          <Container>
+            <Contacts
+              openContactModal={openContactModal}
+              setSuccess={setSuccess}
+              setIsLoading={setIsLoading}
+            />
           </Container>
-        </ContactSection> */}
+        </ContactSection>
       </main>
+      <Footer/>
+
+      {(isPortfolioModal || isContactModal) && 
+        <Modal
+          isPortfolioModal={isPortfolioModal}
+          isContactModal={isContactModal}
+          closePortfolioModal={closePortfolioModal}
+          closeContactModal={closeContactModal}
+          portfolioModalData={portfolioModalData}
+          isSuccess={isSuccess}
+        />
+      }
     </>
   );
 };

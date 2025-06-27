@@ -158,6 +158,37 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     "<"
                 )
 
+
+                gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#ContactSection',
+                        start: 'top bottom',
+                        end: 'bottom center',
+                        scrub: true,
+                    }
+                })
+                .to(groupRef.current.position, 
+                    {
+                        x: 1.5,
+                        ease: 'power2.inOut'
+                    },
+                    "<"
+                )
+                .to(groupRef.current.rotation, 
+                    {
+                        x: Math.PI / 12,
+                        ease: 'power2.inOut'
+                    },
+                    "<"
+                )
+                .to(groupRef.current.rotation, 
+                    {
+                        y: Math.PI * -0.25,
+                        ease: 'power2.inOut'
+                    },
+                    "<"
+                )
+
                 
 
                 gsap.utils.toArray('.phases-item').forEach((el) => {

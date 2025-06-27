@@ -104,17 +104,6 @@ export const CodingChartsStyled = styled.div`
     }
 
 
-
-
-    @keyframes slide-rotate-hor-bottom {
-        0% {
-            transform: translateY(0) rotateX(0deg);
-        }
-        100% {
-            transform: translateY(150px) rotateX(90deg);
-        }
-    }
-
     .padding-cont{
         @media screen and (min-width: 1200px) {
             padding: 20px 0;

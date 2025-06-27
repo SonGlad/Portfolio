@@ -22,6 +22,7 @@ export default defineConfig({
     }), 
     svgr({
       include: "**/*.svg",
+      exportAsDefault: true,
     }),
   ],
   base: '/Portfolio',
