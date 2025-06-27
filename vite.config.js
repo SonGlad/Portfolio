@@ -25,7 +25,7 @@ export default defineConfig({
       exportAsDefault: true,
     }),
   ],
-  base: '/Portfolio',
+  base: '/',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
