@@ -7,7 +7,7 @@ import { useScrollAnimation } from '../../custom-hooks/allGSAPAnimations';
 
 
 export const AnimatedModel = ({ langToShow }) => {
-    const { scene } = useGLTF('/Portfolio/macbook/scene.gltf');
+    const { scene } = useGLTF('/macbook/scene.gltf');
     const groupRef = useRef();
     const floatRef = useRef();
 
