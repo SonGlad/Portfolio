@@ -130,11 +130,10 @@ export const CodingChartsStyled = styled.div`
         }
     }
 
-    .image-padding-cont{
 
+    .image-padding-cont{
         @media screen and (min-width: 1200px){
             width: 45%;
-            opacity: 0;
         }
     }
     
@@ -144,7 +143,6 @@ export const CodingChartsStyled = styled.div`
             width: 45%;
             display: flex;
             align-items: center;
-            opacity: 0;
         }
     }
 
@@ -216,15 +214,17 @@ export const CodingChartsStyled = styled.div`
     }
 
 
-    .left-animation-block{
+    /* .left-animation-block{
         @media screen and (min-width: 1200px){
+            opacity: 0;
             transform: translateX(-50%);
         }
     }
 
     .right-animation-block{
         @media screen and (min-width: 1200px){
+            opacity: 0;
             transform: translateX(50%);
         }
-    }
+    } */
 `

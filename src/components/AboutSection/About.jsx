@@ -26,7 +26,7 @@ export const AboutUsSection = () => {
     });
     const { ref: leftRef, inView: inViewLeft } = useInView({
         triggerOnce: false,
-        threshold: 0.2,
+        threshold: 0.1,
     });
     const { ref: rightRef, inView: inViewRight } = useInView({
         triggerOnce: false,

@@ -10,5 +10,6 @@ export const CanvasStyled = styled.div `
 
     @media screen and (min-width: 1200px){
         height: 100dvh;
+        width: 100vw;
     }
 `

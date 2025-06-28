@@ -132,7 +132,7 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     scrollTrigger: {
                         trigger: '#descriptionThree',
                         start: 'center bottom',
-                        end: 'center center',
+                        end: 'bottom center',
                         scrub: true,
                     }
                 })
@@ -163,7 +163,7 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                     scrollTrigger: {
                         trigger: '#ContactSection',
                         start: 'top bottom',
-                        end: 'bottom center',
+                        end: 'bottom 80%',
                         scrub: true,
                     }
                 })
@@ -200,16 +200,17 @@ export const useScrollAnimation = ({groupRef, containerRef}) => {
                             scrub: true,
                         },
                     })
-                    .to(el.querySelector('.left-animation-block'), {
-                        opacity: 1,
-                        translateX: 0,
-                        ease: 'power2.inOut'
-                    })
-                    .to(el.querySelector('.right-animation-block'), {
-                        opacity: 1,
-                        translateX: 0,
-                        ease: 'power2.inOut'
-                    },"<")
+                    .fromTo(el.querySelector('.left-animation-block'),
+                    { opacity: 0, x: -500 }, 
+                    { opacity: 1, x: 0, ease: 'power2.inOut' },
+                    )
+                    .fromTo(el.querySelector('.right-animation-block'), 
+                    { opacity: 0, x: 500 }, 
+                    { opacity: 1, x: 0, ease: 'power2.inOut' },
+                        "<"
+                    )
+
+                    
                     gsap.timeline({
                         scrollTrigger:{
                             trigger: el,
