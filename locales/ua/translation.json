@@ -138,6 +138,7 @@
         "telegram_link": "https://t.me/SonGlad",
         "telegram_link2": "https://t.me/mentholitty048",
         "instagram_link": "https://www.instagram.com/mentholitty048?igsh=MWZqMHB5a2x4azR2aw==",
+        "discord_link": "https://discord.gg/Erfg3fydXf",
         "steps": {
             "projectPlanning": {
                 "description": "На цьому етапі визначаються цілі проекту та його основні завдання. Це включає в себе збір ваших вимог, аналіз бізнес-процесів, визначення цільової аудиторії та встановлення функціональності продукту. Ми створюємо детальний план, розбиваючи проект на етапи, встановлюючи терміни, розподіляючи ресурси та призначаючи відповідальних. Основна мета полягає в тому, щоб чітко зрозуміти, що буде розроблено та як це буде зроблено.",
@@ -309,6 +310,24 @@
                 "link": "https://www.godaddy.com/en-uk",
                 "translatedType": "ДевОпс",
                 "description": "Провайдер доменів і хостингових послуг."
+            },
+            {   "id": "IconThreeJS",
+                "value": "ThreeJS",
+                "link": "https://r3f.docs.pmnd.rs/getting-started/introduction",
+                "translatedType": "Фронтенд",
+                "description": "Бібліотека для 3D-графіки та її React-обгортка для створення інтерактивної візуалізації в браузері."
+            },
+            {   "id": "IconGSAP",
+                "value": "GSAP",
+                "link": "https://gsap.com",
+                "translatedType": "Фронтенд",
+                "description": "Потужна JavaScript-бібліотека для анімації, створена для професіоналів."
+            },
+            {   "id": "IconVite",
+                "value": "Vite",
+                "link": "https://vite.dev/guide/",
+                "translatedType": "Dev-Tools",
+                "description": "Інструмент збірки, створений для швидкої та простої розробки сучасних веб-проєктів."
             }
         ]
     },
@@ -1682,6 +1701,200 @@
                     },
                     {
                     "size": 70316,
+                    "node": {
+                        "name": "JavaScript"
+                    }
+                    }
+                ]
+            }
+        },
+                {
+            "id": "R_kgDON0x9xQ",
+            "name": "Green-Garden",
+            "type": "Landing",
+            "translation": "Фронтенд",
+            "homepageUrl": "https://songlad.github.io/Green-Garden/",
+            "createdAt": "2025-02-05T13:55:39Z",
+            "coverImage": "https://i.ibb.co/gLybTN94/image.jpg",
+            "img_url": [
+                {"url": "https://i.ibb.co/gLybTN94/image.jpg"},
+                {"url": "https://i.ibb.co/hxQ1YSry/image.jpg"},
+                {"url": "https://i.ibb.co/d47SX4Lh/1.jpg"},
+                {"url": "https://i.ibb.co/Mx6VcFL7/2.jpg"},
+                {"url": "https://i.ibb.co/jPPGRLDV/3.jpg"},
+                {"url": "https://i.ibb.co/jZqjcV7p/4.jpg"}
+            ],
+            "figma_url": null,
+            "description": "Green-Garden (в оригіналі — «נוף גנים», що у перекладі з івриту означає «Види садів») — це лендинг для малого бізнесу в Ізраїлі, орієнтований на розширення клієнтської бази та виконуючий роль цифрової візитної картки власника. Основним завданням проєкту був мінімалістичний, але водночас яскравий і впізнаваний дизайн з необхідним функціоналом для замовника: можливість швидко зв’язатися з власником через телефон або WhatsApp і залишити замовлення. Сайт є багатомовним і розрахований на мешканців Ізраїлю, які розмовляють не лише івритом, але також англійською та російською мовами. Залежно від обраної мови, інтерфейс сайту адаптується під мовні особливості: зліва направо та справа наліво. Додатково на сайт було інтегровано додаток для людей з обмеженими можливостями, що дозволяє підлаштувати інтерфейс під індивідуальні потреби користувача. Для надання сайту динаміки та візуальної привабливості була використана 3D-графіка як фон, а також повноекранний слайдер для демонстрації видів послуг.",
+            "technical_task": null,
+            "technologies": [
+                {   "name": "HTML5",
+                    "link": "https://html.spec.whatwg.org"
+                },            
+                {   "name": "JavaScript",
+                    "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript"
+                },
+                {   "name": "React",
+                    "link": "https://react.dev"
+                },
+                {   "name": "Styled Components",
+                    "link": "https://styled-components.com"
+                },
+                {   "name": "Visual Studio",
+                    "link": "https://code.visualstudio.com"
+                },
+                {   "name": "Git",
+                    "link": "https://git-scm.com"
+                },
+                {   "name": "GitHub",
+                    "link": "https://github.com"
+                }
+            ],
+            "libraries":[
+                {   "name": "React",
+                    "link": "https://react.dev"
+                },
+                {   "name": "React Spinners",
+                    "link": "https://www.npmjs.com/package/react-spinners"
+                },
+                {   "name": "Eslint Plugin Import",
+                    "link": "https://www.npmjs.com/package/eslint-plugin-import"
+                },
+                {   "name": "Modern Normalize",
+                    "link": "https://www.npmjs.com/package/modern-normalize"
+                },
+                {   "name": "Normalize.css",
+                    "link": "https://www.npmjs.com/package/normalize.css?activeTab=versions"
+                },
+                {   "name": "React-Three/Drei",
+                    "link": "https://drei.docs.pmnd.rs/getting-started/introduction"
+                },
+                {   "name": "React-Three/Fiber",
+                    "link": "https://r3f.docs.pmnd.rs/getting-started/introduction"
+                },
+                {   "name": "i18next",
+                    "link": "https://react.i18next.com"
+                },
+                {   "name": "React Intersection Observer",
+                    "link": "https://react-intersection-observer.vercel.app/?path=/docs/intro--docs"
+                },
+                {   "name": "React Scroll Into View",
+                    "link": "https://www.npmjs.com/package/react-scroll-into-view"
+                },
+                {   "name": "Swiper",
+                    "link": "https://swiperjs.com"
+                }
+            ],
+            "languages": {
+                "totalCount": 2,
+                "edges": [
+                    {
+                    "size": 2166,
+                    "node": {
+                        "name": "HTML"
+                    }
+                    },
+                    {
+                    "size": 78687,
+                    "node": {
+                        "name": "JavaScript"
+                    }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "R_kgDOOeftwQ",
+            "name": "ATLAS",
+            "type": "Landing",
+            "translation": "Фронтенд",
+            "homepageUrl": "https://atlas-n3ph.onrender.com/",
+            "createdAt": "2025-04-23T16:05:01Z",
+            "coverImage": "https://i.ibb.co/ch5SWT2B/image.jpg",
+            "img_url": [
+                {"url": "https://i.ibb.co/ch5SWT2B/image.jpg"},
+                {"url": "https://i.ibb.co/Qv6cDVpS/image.jpg"},
+                {"url": "https://i.ibb.co/4nN1J2YY/1.jpg"},
+                {"url": "https://i.ibb.co/Cs4DVQD6/2.jpg"},
+                {"url": "https://i.ibb.co/VpkTrkP0/3.jpg"},
+                {"url": "https://i.ibb.co/Hf45Tjp1/4.jpg"},
+                {"url": "https://i.ibb.co/SXY44vjh/5.jpg"}
+            ],
+            "figma_url": null,
+            "description": "ATLAS — це лендинг для малого бізнесу в Румунії, орієнтований на розширення клієнтської бази та виконання ролі цифрової візитівки власника. Основною метою проєкту був мінімалістичний, але водночас яскравий і запам’ятовуваний дизайн із необхідною функціональністю: можливість швидко зв’язатися з власником через телефон, WhatsApp, Instagram або Telegram і залишити заявку. Сайт є багатомовним і розрахований на жителів Румунії, які розмовляють не лише румунською, а й англійською, російською та українською мовами. Для надання сайту динамічності та візуальної виразності використано 3D-графіку, яка дозволяє не просто демонструвати локації у вигляді 2D-зображень, а зануритись у простір і ознайомитися з місцем майбутньої фотосесії ще до її початку. Для зручності пошуку студії на сайт інтегровано Google Maps з точним зазначенням геолокації. Сайт повністю адаптований під усі типи екранів, включно з мобільними пристроями, планшетами та десктопами. Контент та компоненти динамічно підлаштовуються під роздільну здатність екрана, що забезпечує стабільне та уніфіковане відображення на всіх пристроях.",
+            "technical_task": null,
+            "technologies": [
+                {   "name": "HTML5",
+                    "link": "https://html.spec.whatwg.org"
+                },            
+                {   "name": "JavaScript",
+                    "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript"
+                },
+                {   "name": "React",
+                    "link": "https://react.dev"
+                },
+                {   "name": "Vite",
+                    "link": "https://vite.dev/guide/"
+                },
+                {   "name": "Styled Components",
+                    "link": "https://styled-components.com"
+                },
+                {   "name": "Visual Studio",
+                    "link": "https://code.visualstudio.com"
+                },
+                {   "name": "Git",
+                    "link": "https://git-scm.com"
+                },
+                {   "name": "GitHub",
+                    "link": "https://github.com"
+                }
+            ],
+            "libraries":[
+                {   "name": "React",
+                    "link": "https://react.dev"
+                },
+                {   "name": "React Spinners",
+                    "link": "https://www.npmjs.com/package/react-spinners"
+                },
+                {   "name": "Eslint Plugin Import",
+                    "link": "https://www.npmjs.com/package/eslint-plugin-import"
+                },
+                {   "name": "Modern Normalize",
+                    "link": "https://www.npmjs.com/package/modern-normalize"
+                },
+                {   "name": "Normalize.css",
+                    "link": "https://www.npmjs.com/package/normalize.css?activeTab=versions"
+                },
+                {   "name": "React-Three/Drei",
+                    "link": "https://drei.docs.pmnd.rs/getting-started/introduction"
+                },
+                {   "name": "React-Three/Fiber",
+                    "link": "https://r3f.docs.pmnd.rs/getting-started/introduction"
+                },
+                {   "name": "i18next",
+                    "link": "https://react.i18next.com"
+                },
+                {   "name": "React Intersection Observer",
+                    "link": "https://react-intersection-observer.vercel.app/?path=/docs/intro--docs"
+                },
+                {   "name": "React Scroll Into View",
+                    "link": "https://www.npmjs.com/package/react-scroll-into-view"
+                },
+                {   "name": "React Google Maps",
+                    "link": "https://www.npmjs.com/package/@react-google-maps/api"
+                }
+            ],
+            "languages": {
+                "totalCount": 2,
+                "edges": [
+                    {
+                    "size": 2039,
+                    "node": {
+                        "name": "HTML"
+                    }
+                    },
+                    {
+                    "size": 83645,
                     "node": {
                         "name": "JavaScript"
                     }
