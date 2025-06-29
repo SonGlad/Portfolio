@@ -25,6 +25,9 @@ import IconFigma from "./IconsList/FigmaIcon";
 import IconGodaddy from "./IconsList/GoDaddyIcon";
 import IconNetlify from "./IconsList/IconNetlify";
 import IconCoronarenderer from "./IconsList/RenderIcon";
+import IconGSAP from "./IconsList/GSAP";
+import IconThreejs from "./IconsList/ThreeJS";
+import IconVite from "./IconsList/Vite";
 import { useEffect, useState, useMemo } from "react";
 import { useInView } from 'react-intersection-observer';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
@@ -41,7 +44,10 @@ const IconComponents = [
     {"id": "IconGit", Element: IconGit, "type": "DevOps"}, 
     {"id": "IconGitHub", Element: IconGitHub, "type": "DevOps"}, 
     {"id": "IconNode", Element: IconNode, "type": "Backend"}, 
-    {"id": "IconVS", Element: IconVS, "type": "Dev-Tools"}, 
+    {"id": "IconVS", Element: IconVS, "type": "Dev-Tools"},
+    {"id": "IconVite", Element: IconVite, "type": "Dev-Tools"},
+    {"id": "IconGSAP", Element: IconGSAP, "type": "Frontend"},
+    {"id": "IconThreeJS", Element: IconThreejs, "type": "Frontend"},
     {"id": "IconSASS", Element: IconSASS, "type": "Frontend"}, 
     {"id": "IconStyled", Element: IconStyled, "type": "Frontend"}, 
     {"id": "IconHandlebars", Element: IconHandlebars, "type": "Frontend, Backend"}, 

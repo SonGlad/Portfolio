@@ -5,6 +5,7 @@ import FacebookIcon from "../../assets/svg-icons/facebook.svg";
 import TelegramIcon from "../../assets/svg-icons/telegram.svg";
 import LinkedinIcon from "../../assets/svg-icons/linkedin.svg";
 import GitHubIcon from "../../assets/svg-icons/github.svg";
+import DiscordIcon from "../../assets/svg-icons/discord.svg";
 import Logo from "../../assets/images/iReX_logo.png";
 import { useInView } from 'react-intersection-observer';
 import ScrollIntoView from 'react-scroll-into-view';
@@ -70,6 +71,14 @@ export const Footer = () => {
                                     target="_blank"
                                     rel="noreferrer noopener">
                                     <TelegramIcon className="footer-icon" width={20} height={20}/>
+                                </NavLink>
+                            </li>
+                            <li className="footer-social-item">
+                                <NavLink className="footer-social-link" to={t("profile.discord_link")}
+                                    aria-label="Discord link"
+                                    target="_blank"
+                                    rel="noreferrer noopener">
+                                    <DiscordIcon className="footer-icon" width={20} height={20}/>
                                 </NavLink>
                             </li>
                         </ul>

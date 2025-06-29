@@ -6,6 +6,7 @@ import TelegramIcon from "../../../assets/svg-icons/telegram.svg";
 import LinkedinIcon from "../../../assets/svg-icons/linkedin.svg";
 import PhoneIcon from "../../../assets/svg-icons/phone.svg";
 import EmailIcon from "../../../assets/svg-icons/contact.svg";
+import DiscordIcon from "../../../assets/svg-icons/discord.svg";
 import { useTranslation } from "react-i18next";
 
 
@@ -71,6 +72,14 @@ export const ContactInfo = () => {
                         target="_blank"
                         rel="noreferrer noopener">
                         <TelegramIcon className="contact-social-icon" width={24} height={24}/>
+                    </NavLink>
+                </li>
+                <li className="contact-social-item">
+                    <NavLink className="contact-social-link" to={t("profile.discord_link")}
+                        aria-label="Discord link"
+                        target="_blank"
+                        rel="noreferrer noopener">
+                        <DiscordIcon className="contact-social-icon" width={24} height={24}/>
                     </NavLink>
                 </li>
             </ul>
